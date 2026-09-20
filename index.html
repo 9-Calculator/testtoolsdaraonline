@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ToolsDA Online is a fast, free online tools hub for students and everyone. Try the working calculator demo and BMI calculator.">
+  <meta name="keywords" content="online calculators, student calculators, BMI calculator, scientific calculator, percentage calculator, free online tools">
+  <meta name="author" content="ToolsDA.online">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="./index.html">
+  <title>Free Online Tools for Students & Everyone | ToolsDA.online</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"ToolsDA.online",
+    "url":"./",
+    "description":"Free online calculators, image tools, converters and everyday utilities."
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="ToolsDA.online home">
+        <span class="brand-icon" aria-hidden="true">▣</span>
+        <span>ToolsDA<span class="brand-dot">.</span>online</span>
+      </a>
+
+      <button class="mobile-menu" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <div class="nav-dropdown">
+          <button type="button" class="nav-drop-btn">Calculators <span>⌄</span></button>
+          <div class="nav-menu">
+            <a href="#calculators">Scientific Calculator</a>
+            <a href="#calculators">Percentage Calculator</a>
+            <a href="#calculators">GPA Calculator</a>
+            <a href="BMI%20calculator/index.html">BMI Calculator</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button type="button" class="nav-drop-btn">Image Tools <span>⌄</span></button>
+          <div class="nav-menu">
+            <a href="#categories">Image Resizer</a>
+            <a href="#categories">Image Converter</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button type="button" class="nav-drop-btn">Converters <span>⌄</span></button>
+          <div class="nav-menu">
+            <a href="#categories">Unit Converter</a>
+            <a href="#categories">Currency Converter</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button type="button" class="nav-drop-btn">All Tools <span>⌄</span></button>
+          <div class="nav-menu">
+            <a href="#calculators">Calculators</a>
+            <a href="#categories">All categories</a>
+          </div>
+        </div>
+        <a href="#about">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle dark mode" title="Toggle theme">☼</button>
+        <a class="primary-btn small-btn" href="#categories">Explore Tools <span>→</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Your All-in-One Online Tools Hub</span>
+          <h1 id="hero-title">Free Online Tools for<br><span>Students &amp; Everyone</span></h1>
+          <p class="hero-lead">Fast, simple and free calculators, image tools, converters and everyday utilities — all in one place.</p>
+
+          <form id="toolSearch" class="search-box" role="search">
+            <label class="sr-only" for="searchInput">Search tools</label>
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="searchInput" type="search" placeholder="Search 100+ free tools..." autocomplete="off">
+            <button type="submit">Search</button>
+          </form>
+          <p id="searchMessage" class="search-message" aria-live="polite"></p>
+
+          <div class="hero-actions">
+            <a class="primary-btn" href="#calculators">Browse Calculators <span>→</span></a>
+            <a class="outline-btn" href="#categories">View All Tools</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Working calculator preview">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="float-tag tag-gpa"><span>🎓</span> GPA</div>
+          <div class="float-tag tag-cgpa"><span>▥</span> CGPA</div>
+          <div class="float-tag tag-percent"><span>%</span> Percentage</div>
+          <div class="float-tag tag-science"><span>⚛</span> Scientific</div>
+          <div class="float-tag tag-fraction"><span>½</span> Fraction</div>
+
+          <div class="mini-calculator" aria-label="Working demo calculator">
+            <output id="calcDisplay" class="calc-display" aria-live="polite">0</output>
+            <div class="calc-grid">
+              <button type="button" data-calc="7">7</button><button type="button" data-calc="8">8</button><button type="button" data-calc="9">9</button><button type="button" class="operator" data-calc="÷">÷</button>
+              <button type="button" data-calc="4">4</button><button type="button" data-calc="5">5</button><button type="button" data-calc="6">6</button><button type="button" class="operator" data-calc="×">×</button>
+              <button type="button" data-calc="1">1</button><button type="button" data-calc="2">2</button><button type="button" data-calc="3">3</button><button type="button" class="operator" data-calc="−">−</button>
+              <button type="button" data-calc="0">0</button><button type="button" data-calc=".">.</button><button type="button" class="equals" data-calc="=">=</button><button type="button" class="operator" data-calc="+">+</button>
+            </div>
+            <div class="calc-extra">
+              <button type="button" data-calc="clear">C</button>
+              <button type="button" data-calc="back">⌫</button>
+              <button type="button" data-calc="percent">%</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="calculators" class="section" aria-labelledby="calculator-heading">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h2 id="calculator-heading"><span class="heading-icon">▣</span> Popular Student Calculators</h2>
+            <p>Everything you need for school, college and everyday calculations.</p>
+          </div>
+          <a href="#categories" class="section-link">View all calculators →</a>
+        </div>
+
+        <div id="toolCards" class="tool-grid">
+          <article class="tool-card" data-search="scientific calculator math complex calculations">
+            <div class="tool-icon blue">▣</div>
+            <div><h3>Scientific Calculator</h3><p>Perform complex calculations with our easy-to-use scientific calculator.</p><a href="#demoCalculator" class="card-link">Open tool →</a></div>
+          </article>
+          <article class="tool-card" data-search="percentage calculator percentages discounts markup">
+            <div class="tool-icon green">%</div>
+            <div><h3>Percentage Calculator</h3><p>Calculate percentages, discounts, markups and more.</p><a href="#demoCalculator" class="card-link">Open tool →</a></div>
+          </article>
+          <article class="tool-card" data-search="GPA calculator grades credit hours">
+            <div class="tool-icon purple">🎓</div>
+            <div><h3>GPA Calculator</h3><p>Calculate your GPA based on grades and credit hours.</p><a href="#demoCalculator" class="card-link">Open tool →</a></div>
+          </article>
+          <article class="tool-card" data-search="CGPA calculator college grade point">
+            <div class="tool-icon purple">▥</div>
+            <div><h3>CGPA Calculator</h3><p>Find your CGPA quickly and easily with our simple tool.</p><a href="#demoCalculator" class="card-link">Open tool →</a></div>
+          </article>
+          <article class="tool-card" data-search="fraction calculator add subtract multiply divide">
+            <div class="tool-icon orange">½</div>
+            <div><h3>Fraction Calculator</h3><p>Add, subtract, multiply and divide fractions with ease.</p><a href="#demoCalculator" class="card-link">Open tool →</a></div>
+          </article>
+          <article class="tool-card" data-search="age calculator age years months days">
+            <div class="tool-icon teal">▣</div>
+            <div><h3>Age Calculator</h3><p>Calculate your exact age in years, months and days.</p><a href="#demoCalculator" class="card-link">Open tool →</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="categories" class="section categories-section" aria-labelledby="category-heading">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h2 id="category-heading"><span class="heading-icon">▦</span> Explore Tools by Category</h2>
+            <p>Find the right tool for your needs. More categories and tools are coming soon!</p>
+          </div>
+        </div>
+
+        <div class="category-grid">
+          <a class="category-card" href="#calculators"><div class="tool-icon blue">▣</div><div><h3>Calculators</h3><p>Math, financial, health and more calculators.</p></div><span>→</span></a>
+          <a class="category-card" href="#categories"><div class="tool-icon pink">▧</div><div><h3>Image Tools <small>New</small></h3><p>Edit, resize, convert and enhance your images.</p></div><span>→</span></a>
+          <a class="category-card" href="#categories"><div class="tool-icon green">↔</div><div><h3>Converters</h3><p>Units, currency, file formats and more.</p></div><span>→</span></a>
+          <a class="category-card" href="#about"><div class="tool-icon orange">T</div><div><h3>Text Tools</h3><p>Case conversion, word count, random text and more.</p></div><span>→</span></a>
+          <a class="category-card" href="#about"><div class="tool-icon red">▤</div><div><h3>PDF Tools</h3><p>Merge, split, compress and manage your PDFs.</p></div><span>→</span></a>
+          <a class="category-card" href="#about"><div class="tool-icon violet">&lt;/&gt;</div><div><h3>Developer Tools</h3><p>Code formatters, JSON tools and more.</p></div><span>→</span></a>
+        </div>
+
+        <div id="demoCalculator" class="calculator-demo">
+          <div>
+            <span class="eyebrow">Live demo</span>
+            <h2>Try the calculator shown above</h2>
+            <p>Use the keypad, or use your keyboard. This demo supports basic arithmetic, decimals, percentages and backspace.</p>
+          </div>
+          <div class="large-calculator" aria-label="Large working calculator">
+            <output id="largeCalcDisplay" class="calc-display">0</output>
+            <div class="large-calc-grid">
+              <button type="button" data-large-calc="clear">AC</button><button type="button" data-large-calc="back">⌫</button><button type="button" data-large-calc="percent">%</button><button type="button" class="operator" data-large-calc="÷">÷</button>
+              <button type="button" data-large-calc="7">7</button><button type="button" data-large-calc="8">8</button><button type="button" data-large-calc="9">9</button><button type="button" class="operator" data-large-calc="×">×</button>
+              <button type="button" data-large-calc="4">4</button><button type="button" data-large-calc="5">5</button><button type="button" data-large-calc="6">6</button><button type="button" class="operator" data-large-calc="−">−</button>
+              <button type="button" data-large-calc="1">1</button><button type="button" data-large-calc="2">2</button><button type="button" data-large-calc="3">3</button><button type="button" class="operator" data-large-calc="+">+</button>
+              <button type="button" class="zero" data-large-calc="0">0</button><button type="button" data-large-calc=".">.</button><button type="button" class="equals" data-large-calc="=">=</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="trust-section" aria-label="Website benefits">
+      <div class="container trust-grid">
+        <article><span class="trust-icon">◆</span><div><h3>100% Free</h3><p>No hidden charges. All demo tools are free to use.</p></div></article>
+        <article><span class="trust-icon">●</span><div><h3>No Sign Up</h3><p>Start using the tools instantly. No account needed.</p></div></article>
+        <article><span class="trust-icon">▯</span><div><h3>Fast &amp; Mobile Friendly</h3><p>Works smoothly across phones, tablets and desktops.</p></div></article>
+      </div>
+    </section>
+
+    <section class="seo-content section">
+      <div class="container">
+        <article>
+          <h2>Free online tools for everyday tasks</h2>
+          <p>ToolsDA.online is designed as a simple online tools hub for students, professionals and everyday users. The layout keeps common calculators and utilities easy to find, while responsive design helps the same experience work on desktop, tablet and mobile screens.</p>
+        </article>
+        <article>
+          <h2>Simple calculators without unnecessary steps</h2>
+          <p>Whether you need a quick calculation or want to check a health-related number such as body mass index, the demo tools are designed around clear inputs and readable results. Use the BMI calculator in the <a href="BMI%20calculator/index.html">BMI Calculator folder</a> to calculate BMI from height and weight.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand footer-logo" href="#top"><span class="brand-icon">▣</span><span>ToolsDA<span class="brand-dot">.</span>online</span></a>
+        <p>Free online tools for a smarter, simpler you.</p>
+        <div class="socials"><a href="#about" aria-label="LinkedIn">in</a><a href="#about" aria-label="Twitter">♥</a><a href="#about" aria-label="Facebook">f</a><a href="#about" aria-label="YouTube">▶</a></div>
+      </div>
+      <div><h3>Calculators</h3><a href="#demoCalculator">Scientific Calculator</a><a href="#demoCalculator">Percentage Calculator</a><a href="#demoCalculator">GPA Calculator</a><a href="#demoCalculator">CGPA Calculator</a><a href="BMI%20calculator/index.html">BMI Calculator →</a></div>
+      <div><h3>Resources</h3><a href="#about">Blog</a><a href="#about">Help &amp; FAQ</a><a href="#about">Privacy Policy</a><a href="#about">Terms &amp; Conditions</a><a href="#categories">Sitemap</a></div>
+      <div><h3>Company</h3><a href="#about">About Us</a><a href="#about">Contact</a><a href="#about">Careers</a></div>
+    </div>
+    <div class="container footer-bottom"><span>© 2026 ToolsDA.online. All rights reserved.</span><span>Built for students. Built for everyone.</span></div>
+  </footer>
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Free BMI calculator. Enter height and weight to calculate body mass index with a simple, responsive tool.">
+  <meta name="robots" content="index, follow">
+  <title>BMI Calculator | ToolsDA.online</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"ToolsDA BMI Calculator","applicationCategory":"HealthApplication","operatingSystem":"Web"}
+  </script>
+</head>
+<body>
+  <header class="bmi-header">
+    <div class="wrap">
+      <a class="bmi-brand" href="../index.html">▣ ToolsDA<span>.online</span></a>
+      <a class="back-link" href="../index.html">← Back to Home</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="bmi-hero">
+      <div class="wrap">
+        <span class="eyebrow">Free Health Calculator</span>
+        <h1>BMI Calculator</h1>
+        <p>Calculate your Body Mass Index quickly using your height and weight.</p>
+      </div>
+    </section>
+
+    <section class="wrap bmi-layout" aria-labelledby="calculator-title">
+      <div class="bmi-card">
+        <h2 id="calculator-title">Calculate your BMI</h2>
+        <p class="muted">Choose your units, enter your measurements and press calculate.</p>
+
+        <div class="unit-tabs" role="tablist" aria-label="BMI unit system">
+          <button type="button" class="unit-tab active" data-unit="metric" role="tab" aria-selected="true">Metric</button>
+          <button type="button" class="unit-tab" data-unit="imperial" role="tab" aria-selected="false">Imperial</button>
+        </div>
+
+        <form id="bmiForm">
+          <div id="metricFields" class="fields">
+            <label>Height (cm)<input id="heightCm" type="number" min="50" max="280" step="0.1" placeholder="e.g. 170" required></label>
+            <label>Weight (kg)<input id="weightKg" type="number" min="10" max="500" step="0.1" placeholder="e.g. 65" required></label>
+          </div>
+          <div id="imperialFields" class="fields" hidden>
+            <label>Height (inches)<input id="heightIn" type="number" min="20" max="110" step="0.1" placeholder="e.g. 67"></label>
+            <label>Weight (lb)<input id="weightLb" type="number" min="20" max="1100" step="0.1" placeholder="e.g. 143"></label>
+          </div>
+          <button class="calculate-btn" type="submit">Calculate BMI →</button>
+        </form>
+
+        <div id="bmiResult" class="result" aria-live="polite" hidden>
+          <span>Your BMI</span>
+          <strong id="bmiValue">--</strong>
+          <b id="bmiCategory">--</b>
+          <p id="bmiAdvice"></p>
+        </div>
+      </div>
+
+      <aside class="info-card">
+        <h2>BMI categories</h2>
+        <ul>
+          <li><span>Underweight</span><b>Below 18.5</b></li>
+          <li><span>Healthy range</span><b>18.5–24.9</b></li>
+          <li><span>Overweight</span><b>25–29.9</b></li>
+          <li><span>Obesity</span><b>30 or above</b></li>
+        </ul>
+        <p><strong>Note:</strong> BMI is a screening measure, not a diagnosis. It does not account for every factor that can affect health or body composition.</p>
+      </aside>
+    </section>
+
+    <section class="wrap seo-article">
+      <article>
+        <h2>What is BMI?</h2>
+        <p>Body Mass Index, commonly called BMI, is a number calculated from a person's weight and height. It is commonly used as a screening measure for adults and can help place a person's weight relative to height into broad categories.</p>
+      </article>
+      <article>
+        <h2>How to use this BMI calculator</h2>
+        <p>Select metric or imperial units, enter your height and weight, and select Calculate BMI. The result displays the calculated BMI and the corresponding broad category used by this calculator.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer><div class="wrap">© 2026 ToolsDA.online · <a href="../index.html">Home</a></div></footer>
+  <script src="script.js" defer></script>
+</body>
+</html>
