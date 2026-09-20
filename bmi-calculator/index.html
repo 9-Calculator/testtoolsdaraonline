@@ -1,88 +1,348 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- =========================================================
+       HEAD / SEO
+       Replace example.com with your production domain.
+       ========================================================= -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Free BMI calculator. Enter height and weight to calculate body mass index with a simple, responsive tool.">
-  <meta name="robots" content="index, follow">
-  <title>BMI Calculator | ToolsDA.online</title>
+  <title>BMI Calculator - Free Online BMI Calculator | ToolsDA</title>
+  <meta name="description" content="Calculate your Body Mass Index (BMI) instantly with this free responsive BMI calculator. Supports metric and imperial units.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="ToolsDA">
+  <link rel="canonical" href="https://example.com/bmi-calculator/">
+  <meta name="theme-color" content="#2563eb">
+
+  <!-- Social sharing metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BMI Calculator - Free Online BMI Calculator">
+  <meta property="og:description" content="Calculate BMI quickly with a free mobile-friendly calculator.">
+  <meta property="og:url" content="https://example.com/bmi-calculator/">
+  <meta property="og:site_name" content="ToolsDA">
+  <meta property="og:image" content="https://example.com/assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+
+  <!-- Structured data: keep it synchronized with the visible page. -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"ToolsDA BMI Calculator","applicationCategory":"HealthApplication","operatingSystem":"Web"}
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"BMI Calculator",
+    "url":"https://example.com/bmi-calculator/",
+    "description":"Free online BMI calculator with metric and imperial units.",
+    "applicationCategory":"HealthApplication",
+    "operatingSystem":"Any",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "publisher":{"@type":"Organization","name":"ToolsDA"}
+  }
   </script>
 </head>
+
 <body>
-  <header class="bmi-header">
-    <div class="wrap">
-      <a class="bmi-brand" href="../index.html">▣ ToolsDA<span>.online</span></a>
-      <a class="back-link" href="../index.html">← Back to Home</a>
+  <!-- =========================================================
+       SITE HEADER
+       Semantic header + nav for global navigation.
+       ========================================================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="ToolsDA home">
+        <span class="brand-mark" aria-hidden="true">▦</span>
+        <span>ToolsDA<span class="brand-dot">.online</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="#calculators">Calculators</a>
+        <a href="#tools">Image Tools</a>
+        <a href="#converters">Converters</a>
+        <a href="#all-tools">All Tools</a>
+        <a href="#about">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle dark mode">☼</button>
+        <a class="button button-primary desktop-explore" href="#all-tools">Explore Tools →</a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Open navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile navigation -->
+    <div class="mobile-nav" id="mobileNav" hidden>
+      <div class="container">
+        <a href="#calculators">Calculators</a>
+        <a href="#tools">Image Tools</a>
+        <a href="#converters">Converters</a>
+        <a href="#all-tools">All Tools</a>
+        <a href="#about">About</a>
+      </div>
     </div>
   </header>
 
   <main>
-    <section class="bmi-hero">
-      <div class="wrap">
-        <span class="eyebrow">Free Health Calculator</span>
-        <h1>BMI Calculator</h1>
-        <p>Calculate your Body Mass Index quickly using your height and weight.</p>
+    <!-- =========================================================
+         PAGE INTRO
+         Keep exactly one strong H1 on each calculator page.
+         ========================================================= -->
+    <section class="hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a><span>›</span>
+          <a href="#calculators">Calculators</a><span>›</span>
+          <span aria-current="page">BMI Calculator</span>
+        </nav>
+
+        <div class="page-intro">
+          <div class="page-icon" aria-hidden="true">⚖</div>
+          <div>
+            <p class="eyebrow">Free online calculator</p>
+            <h1>BMI Calculator</h1>
+            <p class="lead">Calculate your Body Mass Index in seconds with metric or imperial measurements.</p>
+            <div class="trust-row">
+              <span>✓ Free to use</span>
+              <span>✓ No installation</span>
+              <span>✓ Mobile friendly</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="wrap bmi-layout" aria-labelledby="calculator-title">
-      <div class="bmi-card">
-        <h2 id="calculator-title">Calculate your BMI</h2>
-        <p class="muted">Choose your units, enter your measurements and press calculate.</p>
-
-        <div class="unit-tabs" role="tablist" aria-label="BMI unit system">
-          <button type="button" class="unit-tab active" data-unit="metric" role="tab" aria-selected="true">Metric</button>
-          <button type="button" class="unit-tab" data-unit="imperial" role="tab" aria-selected="false">Imperial</button>
-        </div>
-
-        <form id="bmiForm">
-          <div id="metricFields" class="fields">
-            <label>Height (cm)<input id="heightCm" type="number" min="50" max="280" step="0.1" placeholder="e.g. 170" required></label>
-            <label>Weight (kg)<input id="weightKg" type="number" min="10" max="500" step="0.1" placeholder="e.g. 65" required></label>
+    <!-- =========================================================
+         CALCULATOR
+         Main interactive tool + contextual sidebar.
+         ========================================================= -->
+    <section class="tool-section" aria-labelledby="calculator-title">
+      <div class="container calculator-layout">
+        <article class="calculator-card" id="calculators">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">BMI calculator</p>
+              <h2 id="calculator-title">Calculate your BMI</h2>
+            </div>
+            <span class="status-dot" aria-label="Calculator ready"></span>
           </div>
-          <div id="imperialFields" class="fields" hidden>
-            <label>Height (inches)<input id="heightIn" type="number" min="20" max="110" step="0.1" placeholder="e.g. 67"></label>
-            <label>Weight (lb)<input id="weightLb" type="number" min="20" max="1100" step="0.1" placeholder="e.g. 143"></label>
-          </div>
-          <button class="calculate-btn" type="submit">Calculate BMI →</button>
-        </form>
 
-        <div id="bmiResult" class="result" aria-live="polite" hidden>
-          <span>Your BMI</span>
-          <strong id="bmiValue">--</strong>
-          <b id="bmiCategory">--</b>
-          <p id="bmiAdvice"></p>
-        </div>
+          <div class="unit-switcher" role="group" aria-label="Measurement system">
+            <button class="unit-button active" type="button" data-unit="metric" aria-pressed="true">Metric</button>
+            <button class="unit-button" type="button" data-unit="imperial" aria-pressed="false">Imperial</button>
+          </div>
+
+          <form id="bmiForm" novalidate>
+            <div class="form-grid" id="metricFields">
+              <div class="field">
+                <label for="heightCm">Height <span>(cm)</span></label>
+                <input id="heightCm" type="number" inputmode="decimal" min="50" max="300" step="0.1" placeholder="e.g. 175">
+                <small>50–300 cm</small>
+              </div>
+              <div class="field">
+                <label for="weightKg">Weight <span>(kg)</span></label>
+                <input id="weightKg" type="number" inputmode="decimal" min="10" max="500" step="0.1" placeholder="e.g. 70">
+                <small>10–500 kg</small>
+              </div>
+            </div>
+
+            <div class="form-grid imperial-grid" id="imperialFields" hidden>
+              <div class="field">
+                <label for="heightFt">Height <span>(feet)</span></label>
+                <input id="heightFt" type="number" inputmode="decimal" min="1" max="8" step="1" placeholder="e.g. 5">
+              </div>
+              <div class="field">
+                <label for="heightIn">Height <span>(inches)</span></label>
+                <input id="heightIn" type="number" inputmode="decimal" min="0" max="11.9" step="0.1" placeholder="e.g. 9">
+              </div>
+              <div class="field">
+                <label for="weightLb">Weight <span>(lb)</span></label>
+                <input id="weightLb" type="number" inputmode="decimal" min="22" max="1100" step="0.1" placeholder="e.g. 154">
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="button button-primary button-large" type="submit">Calculate BMI →</button>
+              <button class="button button-ghost button-large" id="resetButton" type="reset">Clear</button>
+            </div>
+            <p class="form-error" id="formError" role="alert" hidden></p>
+          </form>
+
+          <section class="result-panel" id="resultPanel" aria-live="polite" aria-atomic="true" hidden>
+            <div class="result-number">
+              <span id="bmiValue">0.0</span>
+              <small>BMI</small>
+            </div>
+            <div>
+              <p class="result-label">Your BMI category</p>
+              <h3 id="bmiCategory">—</h3>
+              <p id="bmiMessage"></p>
+            </div>
+          </section>
+
+          <div class="bmi-scale" aria-label="Adult BMI category reference">
+            <div><span>Underweight</span><strong>&lt; 18.5</strong></div>
+            <div><span>Healthy range</span><strong>18.5–24.9</strong></div>
+            <div><span>Overweight</span><strong>25–29.9</strong></div>
+            <div><span>Obesity</span><strong>30+</strong></div>
+          </div>
+
+          <p class="disclaimer">BMI is a screening measure, not a diagnosis. It does not capture every aspect of individual health.</p>
+        </article>
+
+        <aside class="sidebar-stack" aria-label="Helpful BMI information">
+          <section class="info-card">
+            <h2>Quick tips</h2>
+            <ul>
+              <li>Use your current height and weight.</li>
+              <li>Choose metric or imperial units.</li>
+              <li>Use BMI as a general screening measure.</li>
+            </ul>
+          </section>
+
+          <section class="info-card">
+            <h2>Need help?</h2>
+            <p>Learn about the formula, categories and limitations of BMI.</p>
+            <a class="text-link" href="#how-to-use">View guide →</a>
+          </section>
+
+          <section class="info-card">
+            <h2>Related tools</h2>
+            <div class="mini-links">
+              <a href="#tools">Calorie Calculator <span>→</span></a>
+              <a href="#tools">Age Calculator <span>→</span></a>
+              <a href="#tools">Percentage Calculator <span>→</span></a>
+            </div>
+          </section>
+        </aside>
       </div>
-
-      <aside class="info-card">
-        <h2>BMI categories</h2>
-        <ul>
-          <li><span>Underweight</span><b>Below 18.5</b></li>
-          <li><span>Healthy range</span><b>18.5–24.9</b></li>
-          <li><span>Overweight</span><b>25–29.9</b></li>
-          <li><span>Obesity</span><b>30 or above</b></li>
-        </ul>
-        <p><strong>Note:</strong> BMI is a screening measure, not a diagnosis. It does not account for every factor that can affect health or body composition.</p>
-      </aside>
     </section>
 
-    <section class="wrap seo-article">
-      <article>
-        <h2>What is BMI?</h2>
-        <p>Body Mass Index, commonly called BMI, is a number calculated from a person's weight and height. It is commonly used as a screening measure for adults and can help place a person's weight relative to height into broad categories.</p>
-      </article>
-      <article>
-        <h2>How to use this BMI calculator</h2>
-        <p>Select metric or imperial units, enter your height and weight, and select Calculate BMI. The result displays the calculated BMI and the corresponding broad category used by this calculator.</p>
-      </article>
+    <!-- =========================================================
+         RELATED TOOLS
+         Reusable component for every calculator page.
+         ========================================================= -->
+    <section class="related-section" id="all-tools" aria-labelledby="related-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Explore more</p>
+            <h2 id="related-title">Related Tools</h2>
+            <p>Useful calculators and utilities for everyday tasks.</p>
+          </div>
+          <a class="text-link" href="#all-tools">View all tools →</a>
+        </div>
+
+        <div class="tool-grid" id="tools">
+          <a class="tool-card" href="#tools"><span class="tool-icon green">%</span><h3>Percentage Calculator</h3><p>Calculate percentages, discounts, markups and more.</p><span class="text-link">Open Tool →</span></a>
+          <a class="tool-card" href="#tools"><span class="tool-icon purple">▣</span><h3>GPA Calculator</h3><p>Calculate GPA based on grades and credit hours.</p><span class="text-link">Open Tool →</span></a>
+          <a class="tool-card" href="#tools"><span class="tool-icon blue">▥</span><h3>CGPA Calculator</h3><p>Find your CGPA quickly with an easy-to-use tool.</p><span class="text-link">Open Tool →</span></a>
+          <a class="tool-card" href="#tools"><span class="tool-icon orange">½</span><h3>Fraction Calculator</h3><p>Add, subtract, multiply and divide fractions.</p><span class="text-link">Open Tool →</span></a>
+          <a class="tool-card" href="#tools"><span class="tool-icon teal">▣</span><h3>Age Calculator</h3><p>Calculate exact age in years, months and days.</p><span class="text-link">Open Tool →</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         LONG-FORM SEO CONTENT
+         Helpful content supports search intent without keyword stuffing.
+         ========================================================= -->
+    <section class="content-section" id="about" aria-labelledby="about-title">
+      <div class="container content-layout">
+        <article class="prose">
+          <p class="eyebrow">About this calculator</p>
+          <h2 id="about-title">What is a BMI calculator?</h2>
+          <p>A BMI calculator estimates Body Mass Index using weight and height. BMI is commonly used as a screening measure that places adult weight relative to height into broad categories.</p>
+
+          <h2 id="how-to-use">How to use the BMI calculator</h2>
+          <ol>
+            <li><strong>Select a unit system.</strong> Choose Metric or Imperial.</li>
+            <li><strong>Enter your measurements.</strong> Use a current height and weight.</li>
+            <li><strong>Calculate.</strong> Press Calculate BMI to see the result.</li>
+            <li><strong>Interpret carefully.</strong> BMI is a screening tool and not a complete measure of health.</li>
+          </ol>
+
+          <h2>How is BMI calculated?</h2>
+          <p>For metric measurements, BMI is weight in kilograms divided by height in meters squared. Imperial measurements use pounds and inches with the standard conversion factor.</p>
+
+          <h2>BMI categories</h2>
+          <p>Common adult screening ranges are underweight below 18.5, healthy range from 18.5 to 24.9, overweight from 25 to 29.9, and obesity at 30 or above.</p>
+
+          <h2>Important limitations</h2>
+          <p>BMI does not distinguish muscle from fat or account for fat distribution. Interpretation can differ for children, teenagers, pregnancy and some athletic or clinical populations.</p>
+
+          <section class="faq" id="faq" aria-labelledby="faq-title">
+            <h2 id="faq-title">Frequently asked questions</h2>
+            <details>
+              <summary>Is this BMI calculator free?</summary>
+              <p>Yes. It is designed as a free client-side calculator.</p>
+            </details>
+            <details>
+              <summary>Does the calculator store my measurements?</summary>
+              <p>No server-side storage is implemented. Calculations happen in your browser.</p>
+            </details>
+            <details>
+              <summary>Can I use it on a phone?</summary>
+              <p>Yes. The layout is responsive and touch-friendly.</p>
+            </details>
+          </section>
+        </article>
+
+        <aside class="quick-links" aria-label="Quick links">
+          <h2>Quick Links</h2>
+          <a href="#calculators">BMI Calculator <span>›</span></a>
+          <a href="#tools">Percentage Calculator <span>›</span></a>
+          <a href="#tools">GPA Calculator <span>›</span></a>
+          <a href="#tools">Age Calculator <span>›</span></a>
+          <a href="#faq">FAQ <span>›</span></a>
+          <div class="did-you-know">
+            <strong>Did you know?</strong>
+            <p>Separating HTML, CSS and JavaScript makes a calculator site much easier to scale.</p>
+          </div>
+        </aside>
+      </div>
     </section>
   </main>
 
-  <footer><div class="wrap">© 2026 ToolsDA.online · <a href="../index.html">Home</a></div></footer>
-  <script src="script.js" defer></script>
+  <!-- =========================================================
+       SITE FOOTER
+       Reusable global footer with navigation and trust links.
+       ========================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="/">
+          <span class="brand-mark">▦</span>
+          <span>ToolsDA<span class="brand-dot">.online</span></span>
+        </a>
+        <p>Free online tools for a smarter, simpler you.</p>
+      </div>
+      <div>
+        <h2>Calculators</h2>
+        <a href="#calculators">BMI Calculator</a>
+        <a href="#tools">Percentage Calculator</a>
+        <a href="#tools">GPA Calculator</a>
+        <a href="#tools">CGPA Calculator</a>
+        <a href="#tools">More Calculators →</a>
+      </div>
+      <div>
+        <h2>Resources</h2>
+        <a href="#faq">Help & FAQ</a>
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#terms">Terms & Conditions</a>
+        <a href="#sitemap">Sitemap</a>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+        <a href="#careers">Careers</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year">2026</span> ToolsDA.online. All rights reserved.</span>
+      <span>Built for students. Built for everyone.</span>
+    </div>
+  </footer>
 </body>
 </html>
